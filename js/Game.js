@@ -58,7 +58,9 @@ class Game {
       var x = 175 ;
       var y;
 
+
       for(var plr in allPlayers){
+      console.log(plr);
         //add 1 to the index for every loop
         index = index + 1 ;
 
@@ -70,9 +72,13 @@ class Game {
         cars[index-1].y = y;
 
         if (index === player.index){
-          cars[index - 1].shapeColor = "red";
+      //var pos =  y;
+
+      textSize (20);
+      text (player.name,x,y-100);
+
           camera.position.x = displayWidth/2;
-          camera.position.y = cars[index-1].y;
+          camera.position.y = cars[index-1].y; 
         }
        
         //textSize(15);
@@ -86,14 +92,19 @@ class Game {
       player.update();
     }
 
-    if(player.distance > 3860){
+    if(player.distance > 4200){
       gameState = 2;
+   fill ("black");
+     textSize (60);
+      text ("Game Ended" , displayWidth/2 -100 , y - 200)
     }
    
     drawSprites();
   }
 
   end(){
-    console.log("Game Ended");
+  //  console.log("Game Ended");
+   
+ 
   }
 }
